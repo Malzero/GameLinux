@@ -29,7 +29,7 @@ public class Screen {
         Texture tex = new Texture("/root/Documentos/GameLinux/rsrc/sprites/teoql2.png");
         float x;
         float y;
-        Entity2D box = new Box2D(0.2f, 0.2f,0.2f);
+        Entity2D box = new Box2D(0.2f, 0.2f,0.4f, "/root/Documentos/GameLinux/rsrc/sprites/teoql2.png");
         box.setUp();
 
 
