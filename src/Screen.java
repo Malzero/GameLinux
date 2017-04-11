@@ -30,6 +30,7 @@ public class Screen {
         float x;
         float y;
         Entity2D box = new Box2D(0.2f, 0.2f,0.4f, "/root/Documentos/GameLinux/rsrc/sprites/teoql2.png");
+        Enemy enemy = new Enemy(0.2f);
         box.setUp();
 
 
@@ -64,6 +65,7 @@ public class Screen {
                     box.setX(box.getX() + x);
                     box.setY(box.getY() + y);
                     box.draw();
+                    enemy.followdraw((AbstractEntity2D) box);
                 glEnd();
                 glfwSwapBuffers(window);
             }

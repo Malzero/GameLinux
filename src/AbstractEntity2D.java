@@ -15,4 +15,5 @@ public abstract class AbstractEntity2D implements Entity2D {
     public abstract void setUp();
     public abstract void destroy();
     public abstract void draw();
+    public abstract void followdraw(AbstractEntity2D folowed);
 }

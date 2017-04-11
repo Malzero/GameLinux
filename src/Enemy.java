@@ -1,15 +1,15 @@
 import static org.lwjgl.opengl.GL11.*;
 
-public class Box2D extends AbstractEntity2D{
+public class Enemy extends AbstractEntity2D{
     private float size;
     private Texture tex;
-    public Box2D(float x, float y, float size, String filename) {
-        this.x = x;
-        this.y = y;
+    public Enemy(float size) {
+        this.x = 0;
+        this.y = 0;
         this.size = size;
-        tex = new Texture(filename);
+        tex = new Texture("");
     }
-    public Box2D() {
+    public Enemy() {
         this.x = this.y = this.size = 0;
     }
     @Override
@@ -34,8 +34,23 @@ public class Box2D extends AbstractEntity2D{
         glVertex2f(x - size/2, y - size/2);
         glEnd();
     }
-    @Override
-    public void followdraw(AbstractEntity2D folowed){
 
+    @Override
+    public void followdraw(AbstractEntity2D folowed) {
+
+        setX(getX() + (folowed.getX() - x));
+        setY();
+
+        tex.bind();
+        glBegin(GL_QUADS);
+        glTexCoord2f(0,0);
+        glVertex2f(x - size/2, y + size/2);
+        glTexCoord2f(1,0);
+        glVertex2f(x + size/2, y + size/2);
+        glTexCoord2f(1,1);
+        glVertex2f(x + size/2, y - size/2);
+        glTexCoord2f(0,1);
+        glVertex2f(x - size/2, y - size/2);
+        glEnd();
     }
 }
